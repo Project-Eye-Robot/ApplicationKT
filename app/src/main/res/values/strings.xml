@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ApplicationKT</string>
+    <string name="text_disconnect">Robot is disconnected</string>
+    <string name="text_connect">Click here to connect</string>
+    <string name="connect_btn">CONNECT</string>
+    <string name="lights">lights</string>
+    <string name="lightsOff">lights off</string>
+</resources>
