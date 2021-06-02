@@ -20,7 +20,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="70dp" />
 
-    <VideoView
+    <WebView
         android:id="@+id/streaming"
         android:layout_width="300dp"
         android:layout_height="200dp"
@@ -28,7 +28,8 @@
         app:layout_constraintRight_toRightOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
-        ></VideoView>
+    />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

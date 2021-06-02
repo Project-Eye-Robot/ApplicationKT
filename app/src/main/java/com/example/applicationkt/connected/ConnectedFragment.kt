@@ -1,21 +1,32 @@
 package com.example.applicationkt.connected
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.view.MotionEvent
+import android.view.SurfaceHolder
+import android.view.SurfaceView
+import android.view.View
+import android.view.View.OnTouchListener
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.ImageButton
-import android.widget.VideoView
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.example.applicationkt.R
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import okhttp3.*
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
 
-class ConnectedFragment : AppCompatActivity() {
-    private val client = OkHttpClient()
 
+class    ConnectedFragment : AppCompatActivity(){
+    private val client = OkHttpClient()
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var vidHolder: SurfaceHolder
+    private lateinit var vidSurface: SurfaceView
+
+
+    @SuppressLint("ClickableViewAccessibility", "SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connected)
@@ -26,8 +37,19 @@ class ConnectedFragment : AppCompatActivity() {
         val backward: ImageButton = findViewById(R.id.arrow_down)
         val left: ImageButton = findViewById(R.id.arrow_left)
         val right: ImageButton = findViewById(R.id.arrow_right)
-        val baseUrl = "https://pentastyle-gull-3744.dataplicity.io"
-        val stream: VideoView = findViewById(R.id.streaming)
+        val baseUrl = "http://192.168.1.61:80"
+        val baseUrl2 = "http://192.168.43.75:80"
+        val webView = findViewById<View>(R.id.streaming) as WebView
+
+        true.also { webView.settings.javaScriptEnabled = it }
+
+        webView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(baseUrl)
+                return true
+                }
+            }
+        webView.loadUrl("${baseUrl}/camera")
 
         lights.setOnClickListener{
             if(isLightsON){
@@ -40,7 +62,70 @@ class ConnectedFragment : AppCompatActivity() {
             }
         }
 
-        forward.setOnClickListener{
+        forward.setOnTouchListener(OnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    Log.v("forward", "forward")
+                    CallUrl("${baseUrl}/F")
+                    return@OnTouchListener true
+                }
+                MotionEvent.ACTION_UP -> {
+                    Log.v("stop forward", "stop forward")
+                    CallUrl("${baseUrl}/Stop")
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
+
+        backward.setOnTouchListener(OnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    CallUrl("${baseUrl}/B")
+                    return@OnTouchListener true
+                }
+                MotionEvent.ACTION_UP -> {
+                    Log.v("stop forward", "stop forward")
+                    CallUrl("${baseUrl}/Stop")
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
+
+        left.setOnTouchListener(OnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    Log.v("forward", "forward")
+                    CallUrl("${baseUrl}/L")
+                    return@OnTouchListener true
+                }
+                MotionEvent.ACTION_UP -> {
+                    Log.v("stop forward", "stop forward")
+                    CallUrl("${baseUrl}/Stop")
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
+
+        right.setOnTouchListener(OnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    Log.v("forward", "forward")
+                    CallUrl("${baseUrl}/R")
+                    return@OnTouchListener true
+                }
+                MotionEvent.ACTION_UP -> {
+                    Log.v("stop forward", "stop forward")
+                    CallUrl("${baseUrl}/Stop")
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
+
+        /*forward.setOnClickListener{
             CallUrl("${baseUrl}/F")
         }
         backward.setOnClickListener{
@@ -51,7 +136,7 @@ class ConnectedFragment : AppCompatActivity() {
         }
         right.setOnClickListener{
             CallUrl("${baseUrl}/R")
-        }
+        }*/
 
     }
 
@@ -61,7 +146,7 @@ class ConnectedFragment : AppCompatActivity() {
                 .build()
 
         client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {}
+            override fun onFailure(call: Call, e: IOException) { Log.v("request", e.toString()) }
             override fun onResponse(call: Call, response: Response): Unit =
                     response.body!!.string().let { Log.v("request", it) }
         })
