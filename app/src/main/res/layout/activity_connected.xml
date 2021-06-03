@@ -73,19 +73,12 @@
 
     <ImageButton
         android:id="@+id/arrow_up"
-<<<<<<< HEAD
-        android:layout_width="72dp"
-        android:layout_height="77dp"
-        android:backgroundTint="@color/blue"
-=======
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
->>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
         android:contentDescription="@string/lights"
         android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
         app:layout_constraintBottom_toTopOf="@+id/arrow_down"
         app:layout_constraintLeft_toLeftOf="parent"
-<<<<<<< HEAD
         app:layout_constraintRight_toRightOf="parent" />
 
 
@@ -103,62 +96,12 @@
 
     <ImageButton
         android:id="@+id/arrow_left"
-        android:layout_width="99dp"
-        android:layout_height="58dp"
         android:backgroundTint="@color/blue"
-=======
-        app:layout_constraintRight_toRightOf="parent"
-        android:backgroundTint="@color/blue"/>
-
-    <ImageButton
-        android:id="@+id/arrow_down"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:backgroundTint="@color/blue"/>
+        app:layout_constraintRight_toRightOf="parent"/>
 
-
-    <ImageButton
-        android:id="@+id/arrow_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
->>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
-        android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toStartOf="@+id/arrow_down"
-        app:layout_constraintLeft_toLeftOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <ImageButton
-        android:id="@+id/arrow_right"
-        android:layout_width="112dp"
-        android:layout_height="63dp"
-        android:backgroundTint="@color/blue"
-=======
-        app:layout_constraintRight_toRightOf="parent"
-        android:backgroundTint="@color/blue"/>
-
-    <ImageButton
-        android:id="@+id/arrow_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
->>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
-        android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintStart_toEndOf="@+id/arrow_down" />
-=======
-        app:layout_constraintStart_toEndOf="@+id/arrow_down"
-        android:backgroundTint="@color/blue"/>
->>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
 
 </androidx.constraintlayout.widget.ConstraintLayout>
