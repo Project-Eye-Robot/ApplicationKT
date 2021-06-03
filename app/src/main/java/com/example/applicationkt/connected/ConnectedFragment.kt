@@ -21,16 +21,28 @@ import java.io.IOException
 
 class    ConnectedFragment : AppCompatActivity(){
     private val client = OkHttpClient()
+<<<<<<< HEAD
+=======
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var vidHolder: SurfaceHolder
+    private lateinit var vidSurface: SurfaceView
+
+>>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
 
     @SuppressLint("ClickableViewAccessibility", "SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connected)
         var isLightsON = false
+<<<<<<< HEAD
         var isHonkOn = false
 
         val lights: ImageButton = findViewById(R.id.lights)
         val honk : ImageButton = findViewById(R.id.honk)
+=======
+
+        val lights: ImageButton = findViewById(R.id.lights)
+>>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
         val forward: ImageButton = findViewById(R.id.arrow_up)
         val backward: ImageButton = findViewById(R.id.arrow_down)
         val left: ImageButton = findViewById(R.id.arrow_left)
@@ -51,15 +63,24 @@ class    ConnectedFragment : AppCompatActivity(){
 
         lights.setOnClickListener{
             if(isLightsON){
+<<<<<<< HEAD
                 CallUrl("${baseUrl}/lightOff")
                 isLightsON = false
             }
             else{
                 CallUrl("${baseUrl}/lightOn")
+=======
+                CallUrl("${baseUrl}/off")
+                isLightsON = false
+            }
+            else{
+                CallUrl("${baseUrl}/on")
+>>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
                 isLightsON = true
             }
         }
 
+<<<<<<< HEAD
         honk.setOnClickListener{
             if(isHonkOn){
                 CallUrl("${baseUrl}/honkOff")
@@ -71,6 +92,8 @@ class    ConnectedFragment : AppCompatActivity(){
             }
         }
 
+=======
+>>>>>>> e2e710af023a46f10475c5c2cd6009bd324f5720
         forward.setOnTouchListener(OnTouchListener { v, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
