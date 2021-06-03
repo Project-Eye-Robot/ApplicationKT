@@ -66,7 +66,7 @@ class    ConnectedFragment : AppCompatActivity(){
                 isHonkOn = false
             }
             else{
-                CallUrl("${baseUrl}/honkO n")
+                CallUrl("${baseUrl}/honkOn")
                 isHonkOn = true
             }
         }
