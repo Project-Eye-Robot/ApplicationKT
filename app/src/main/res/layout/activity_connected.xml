@@ -73,49 +73,50 @@
 
     <ImageButton
         android:id="@+id/arrow_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="72dp"
+        android:layout_height="77dp"
+        android:backgroundTint="@color/blue"
         android:contentDescription="@string/lights"
         android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
         app:layout_constraintBottom_toTopOf="@+id/arrow_down"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:backgroundTint="@color/blue"/>
+        app:layout_constraintRight_toRightOf="parent" />
+
 
     <ImageButton
         android:id="@+id/arrow_down"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="66dp"
+        android:layout_height="64dp"
+        android:backgroundTint="@color/blue"
         android:contentDescription="@string/lights"
         android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:backgroundTint="@color/blue"/>
-
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
         android:id="@+id/arrow_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="58dp"
+        android:backgroundTint="@color/blue"
         android:contentDescription="@string/lights"
         android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/arrow_down"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:backgroundTint="@color/blue"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
         android:id="@+id/arrow_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="112dp"
+        android:layout_height="63dp"
+        android:backgroundTint="@color/blue"
         android:contentDescription="@string/lights"
         android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/arrow_down"
-        android:backgroundTint="@color/blue"/>
+        app:layout_constraintStart_toEndOf="@+id/arrow_down" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

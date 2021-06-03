@@ -21,18 +21,16 @@ import java.io.IOException
 
 class    ConnectedFragment : AppCompatActivity(){
     private val client = OkHttpClient()
-    private lateinit var mediaPlayer: MediaPlayer
-    private lateinit var vidHolder: SurfaceHolder
-    private lateinit var vidSurface: SurfaceView
-
 
     @SuppressLint("ClickableViewAccessibility", "SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connected)
         var isLightsON = false
+        var isHonkOn = false
 
         val lights: ImageButton = findViewById(R.id.lights)
+        val honk : ImageButton = findViewById(R.id.honk)
         val forward: ImageButton = findViewById(R.id.arrow_up)
         val backward: ImageButton = findViewById(R.id.arrow_down)
         val left: ImageButton = findViewById(R.id.arrow_left)
@@ -53,12 +51,23 @@ class    ConnectedFragment : AppCompatActivity(){
 
         lights.setOnClickListener{
             if(isLightsON){
-                CallUrl("${baseUrl}/off")
+                CallUrl("${baseUrl}/lightOff")
                 isLightsON = false
             }
             else{
-                CallUrl("${baseUrl}/on")
+                CallUrl("${baseUrl}/lightOn")
                 isLightsON = true
+            }
+        }
+
+        honk.setOnClickListener{
+            if(isHonkOn){
+                CallUrl("${baseUrl}/honkOff")
+                isHonkOn = false
+            }
+            else{
+                CallUrl("${baseUrl}/honkO n")
+                isHonkOn = true
             }
         }
 
