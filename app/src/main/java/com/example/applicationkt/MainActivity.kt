@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 override fun onResponse(call: Call, response: Response) {
-                    loader.visibility = View.INVISIBLE
                     startActivity(intent)}
             } )
 
