@@ -20,16 +20,17 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="70dp" />
 
+
     <WebView
         android:id="@+id/streaming"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        app:layout_constraintLeft_toLeftOf="@id/guideline"
-        app:layout_constraintRight_toRightOf="@id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-    />
-
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -43,15 +44,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="150dp" />
+        app:layout_constraintGuide_end="91dp" />
 
+
+    <ImageButton
+        android:id="@+id/camera_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/lights"
+        android:src="@drawable/camera_left"
+        android:backgroundTint="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/streaming" />
+
+    <ImageButton
+        android:id="@+id/camera_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/lights"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/camera_right"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/streaming" />
 
     <ImageButton
         android:id="@+id/lights"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_highlight_24"
+        android:src="@drawable/light"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -63,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_highlight_24"
+        android:src="@drawable/horn"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -71,47 +96,99 @@
         android:backgroundTint="@color/white"/>
 
 
-    <ImageButton
+    <androidx.cardview.widget.CardView
         android:id="@+id/arrow_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
-        app:layout_constraintBottom_toTopOf="@+id/arrow_down"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-
-    <ImageButton
-        android:id="@+id/arrow_down"
-        android:layout_width="66dp"
-        android:layout_height="64dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
         android:backgroundTint="@color/blue"
-        android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/arrow_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/roundedImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/arrow_up" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/arrow_down"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/blue"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        tools:ignore="MissingConstraints">
 
-    <ImageButton
+        <ImageView
+            android:id="@+id/roundedImageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/arrow_down"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/arrow_left"
-        android:backgroundTint="@color/blue"
-        android:layout_height="50dp"
         android:layout_width="50dp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/blue"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
 
-    <ImageButton
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/arrow_down"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/roundedImageView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/arrow_left" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/arrow_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/lights"
-        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/blue"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/arrow_down" />
+        app:layout_constraintStart_toEndOf="@+id/arrow_down">
+
+        <ImageView
+            android:id="@+id/roundedImageView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/arrow_right"/>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

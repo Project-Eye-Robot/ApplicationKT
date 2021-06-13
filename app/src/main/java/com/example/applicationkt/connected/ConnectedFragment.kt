@@ -14,6 +14,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.example.applicationkt.R
 import okhttp3.*
 import java.io.IOException
@@ -32,10 +33,10 @@ class    ConnectedFragment : AppCompatActivity(){
         val lights: ImageButton = findViewById(R.id.lights)
         val honk : ImageButton = findViewById(R.id.honk)
 
-        val forward: ImageButton = findViewById(R.id.arrow_up)
-        val backward: ImageButton = findViewById(R.id.arrow_down)
-        val left: ImageButton = findViewById(R.id.arrow_left)
-        val right: ImageButton = findViewById(R.id.arrow_right)
+        val forward: CardView = findViewById(R.id.arrow_up)
+        val backward: CardView = findViewById(R.id.arrow_down)
+        val left: CardView = findViewById(R.id.arrow_left)
+        val right: CardView = findViewById(R.id.arrow_right)
         val baseUrl = "http://192.168.1.61:80"
         val baseUrl2 = "http://192.168.43.75:80"
         val webView = findViewById<View>(R.id.streaming) as WebView
