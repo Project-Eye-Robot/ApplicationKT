@@ -30,7 +30,10 @@ class    ConnectedFragment : AppCompatActivity(){
         var isLightsON = false
         var isHonkOn = false
 
-        val lights: ImageButton = findViewById(R.id.lights)
+        val camera_left : ImageButton = findViewById(R.id.camera_left)
+        val camera_right : ImageButton = findViewById(R.id.camera_right)
+
+        val lights:  ImageButton = findViewById(R.id.lights)
         val honk : ImageButton = findViewById(R.id.honk)
 
         val forward: CardView = findViewById(R.id.arrow_up)
@@ -50,6 +53,14 @@ class    ConnectedFragment : AppCompatActivity(){
                 }
             }
         webView.loadUrl("${baseUrl}/camera")
+
+        camera_left.setOnClickListener{
+            CallUrl("${baseUrl}/camera_left")
+        }
+
+        camera_right.setOnClickListener{
+            CallUrl("${baseUrl}/camera_right")
+        }
 
         lights.setOnClickListener{
             if(isLightsON){
